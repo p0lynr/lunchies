@@ -1,4 +1,3 @@
-
 /**
  * class Lunchspot
  * creates a new Lunchspot class with the following properties:
@@ -17,7 +16,7 @@ var Lunchspot = class{
 
 /**
  * class FavouriteLunchspots
- * creates a new FavouriteLunchspots which is a list of faviourite lunchspots
+ * maybe for future plans
  */
 var FavouriteLunchspots = class{
   constructor(){
@@ -28,7 +27,7 @@ var FavouriteLunchspots = class{
 /**
  * class Person
  * creates a new Person class with the following properties:
- * name, budget, taste, dietary, history
+ * name, budget, taste, dietary, history, myFavouriteLunchspots
  */
 var Person = class{
   constructor(name, budget, taste, dietary){
@@ -37,6 +36,7 @@ var Person = class{
       this.taste = taste
       this.dietary = dietary
       this.history = []
+      this.myFavouriteLunchspots = []
   }
 
   attendLunchmeeting(lunchmeeting) {
@@ -44,39 +44,40 @@ var Person = class{
   }
 
   addLunchspotToFavourites(lunchspot){
-      this.favouriteLunchspotlist.push(lunchspot)
+      this.myFavouriteLunchspots.push(lunchspot)
   }
 }
 
 /**
  * class Lunchmeeting
  * creates a new Lunchmeeting class, which is an event with the following properties:
- * date, lunchspot, members
+ * date, lunchspot, lunchPersons
  */
 var Lunchmeeting = class{
-  constructor(date, selectedLunchspot, lunchPerson){
+  constructor(date, selectedLunchspot, lunchPersons){
     this.date = date
     // lunchspot has to be an instance of Lunchspot
     this.selectedLunchspot = selectedLunchspot
-    // lunchperson has to be an instance of Person
-    this.lunchPerson = lunchPerson
+    // lunchpersons is a list of Person
+    this.lunchPersons = lunchPersons
   }
 }
 
 
 // instances of Person
-var katrin = new Person('Katrin', 10, vietnamese, none)
-var anna = new Person('Anna', 15, pizza, vegetarian)
-var peter = new Person('Peter', 8, soup, none)
+var katrin = new Person('Katrin', 10, 'vietnamese', 'none')
+var anna = new Person('Anna', 15, 'pizza', 'vegetarian')
+var peter = new Person('Peter', 8, 'soup', 'none')
 
 // instances of Lunchspot
-var takafishhouse = new Lunchspot('TAKA Fisch House','Kreuzberg', 'fish', [5,16], [11,20], lactosefree)
-var cowei = new Lunchspot('Cowei','Mitte', 'vietnamese', [3,11], [12,22], [lactosefree,vegetarian,vegan,glutenfree])
+var takafishhouse = new Lunchspot('TAKA Fisch House','Kreuzberg', 'fish', [5,16], [11,20], 'lactosefree')
+var cowei = new Lunchspot('Cowei','Mitte', 'vietnamese', [3,11], [12,22], ['lactosefree','vegetarian','vegan','glutenfree'])
 
 // instances of Lunchmeeting
-var lunchWithAnna = new Lunchmeeting(new Date(2018,10,15),takafishhouse,anna)
+var lunchWithAnna = new Lunchmeeting(new Date(2018,10,15),takafishhouse,[anna,katrin])
 
 
 // interaction Person with Lunchmeeting
 katrin.attendLunchmeeting(lunchWithAnna)
 katrin.addLunchspotToFavourites(cowei)
+
