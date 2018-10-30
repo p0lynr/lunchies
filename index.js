@@ -23,7 +23,6 @@ anna.attendLunchmeeting(lunchWithAnna)
 
 katrin.addLunchspotToFavourites(cowei)
 
-
 // save Data to a JSON file
 Database.save(lunchWithAnna)
 
