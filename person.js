@@ -10,17 +10,15 @@ module.exports = class Person{
       this.budget = budget
       this.taste = taste
       this.dietary = dietary
-      this.history = []
+      // this.history = []
       this.myfavouriteLunchspots = []
   }
 
   attendLunchmeeting(lunchmeeting) {
-       this.history.push(lunchmeeting)
-    //   history.push(lunchmeeting)
+       lunchmeeting.lunchPersons.push(this)
   }
 
   addLunchspotToFavourites(lunchspot){
        this.myfavouriteLunchspots.push(lunchspot)
-    //   myfavouriteLunchspots.push(lunchspot)
   }
 }

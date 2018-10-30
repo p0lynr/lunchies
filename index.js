@@ -15,12 +15,14 @@ const takafishhouse = new Lunchspot('TAKA Fisch House','Kreuzberg', 'fish', [5,1
 const cowei = new Lunchspot('Cowei','Mitte', 'vietnamese', [3,11], [12,22], ['lactosefree','vegetarian','vegan','glutenfree'])
 
 // instances of Lunchmeeting
- const lunchWithAnna = new Lunchmeeting(new Date(2018,10,15),takafishhouse,['anna','katrin'])
-// const lunchWithAnna = new Lunchmeeting(new Date(2018,10,15),takafishhouse,[katrin])
+const lunchWithAnna = new Lunchmeeting(new Date(2018,10,15),takafishhouse)
 
 // interaction Person with Lunchmeeting
 katrin.attendLunchmeeting(lunchWithAnna)
+anna.attendLunchmeeting(lunchWithAnna)
+
 katrin.addLunchspotToFavourites(cowei)
+
 
 // save Data to a JSON file
 Database.save(lunchWithAnna)

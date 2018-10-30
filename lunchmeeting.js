@@ -1,17 +1,16 @@
 /**
  * class Lunchmeeting
  * creates a new Lunchmeeting class, which is an event with the following properties:
- * date, lunchspot, lunchPersonNames(a list of Names only)
+ * date, lunchspot, lunchPersons
  */
 
 module.exports = class Lunchmeeting{
-    constructor(date, selectedLunchspot, lunchPersonNames){
+    constructor(date, selectedLunchspot){
         this.date = date
         // lunchspot has to be an instance of Lunchspot
         this.selectedLunchspot = selectedLunchspot
         // lunchpersons is a list of PersonNames
-        this.lunchPersonNames = lunchPersonNames
-
+        this.lunchPersons = []
     }
 }
   
