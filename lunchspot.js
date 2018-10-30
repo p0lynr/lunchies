@@ -13,4 +13,8 @@ module.exports = class Lunchspot{
     this.opening_hours = opening_hours // [open,close]
     this.dietary = dietary
   }
+  
+  static create(obj){
+    return new Lunchspot(obj.name, obj.neighbourhood, obj.cuisine, obj.price_range, obj.opening_hours, obj.dietary)
+  }
 }

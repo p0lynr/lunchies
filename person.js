@@ -21,4 +21,8 @@ module.exports = class Person{
   addLunchspotToFavourites(lunchspot){
        this.myfavouriteLunchspots.push(lunchspot)
   }
+
+  static create(obj){
+    return new Person(obj.name, obj.budget, obj.taste, obj.dietary)
+  }
 }

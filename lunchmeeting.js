@@ -12,5 +12,9 @@ module.exports = class Lunchmeeting{
         // lunchpersons is a list of PersonNames
         this.lunchPersons = []
     }
+
+    static create(obj){
+        return new Lunchmeeting(obj.date, obj.selectedLunchspot)
+    }
 }
   
