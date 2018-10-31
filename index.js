@@ -30,15 +30,13 @@ katrin.attendLunchmeeting(lunchWithPeterAnna)
 
 katrin.addLunchspotToFavourites(cowei)
 
-// save Data to a JSON file
-Database.save([lunchWithAnna,lunchWithPeter,lunchWithPeterAnna])
 
-// read Data from JSON file
-const loadedFile = Database.load()
-// const firstLunch = Lunchmeeting.create(loadedFile[0])
-// const secondLunch = Lunchmeeting.create(loadedFile[1])
+const main = async() =>{
+    await Database.saveData([lunchWithAnna,lunchWithPeter,lunchWithPeterAnna])
+    await console.log('waitforeverything')
+    const loadedFile = await Database.readData()
+    await console.log(loadedFile)
+    await console.log('end')
+}
 
-// map all data to create Lunchmeeting objects
-const convertedFile = loadedFile.map(Lunchmeeting.create)
-
-console.log(convertedFile)
+main()
